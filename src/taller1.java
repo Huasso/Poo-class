@@ -13,7 +13,7 @@ public class taller1 {
             mostrar_menu();
             System.out.print("\nElige una opción: ");
             opcion = scanner.nextInt();
-            elejir_opcion_de_menu(opcion);
+            elegir_opcion_de_menu(opcion);
         } while (opcion != 5);
 
         scanner.close();
@@ -28,13 +28,13 @@ public class taller1 {
         System.out.println("5. Salir");
     }
 
-    public static void elejir_opcion_de_menu(int opcion) {
+    public static void elegir_opcion_de_menu(int opcion) {
         switch (opcion) {
             case 1:
                 verificarRevesDerecho();
                 break;
             case 2:
-                System.out.println("Elegiste la Opción 2");
+                contarVocales();
                 break;
             case 3:
                 System.out.println("Elegiste la Opción 3");
@@ -50,15 +50,17 @@ public class taller1 {
         }
     }
 
-    public static void verificarRevesDerecho() {
+     public static boolean verificarRevesDerecho() {
         System.out.println("Ejecutando Opción 1...");
         String frase = ingresarFrase();
         String invertida = invertirFrase(frase);
         System.out.println("Frase invertida: " + invertida);
         if (invertida.equals(frase)) {
-            System.out.println("La frase es un palíndromo (Reves y Derecho).");
+            System.out.println("La frase es un palíndromo (Reves y Derecho)");
+            return true ;
         } else {
-            System.out.println("La frase no es un palíndromo.");
+            System.out.println("La frase no es un palíndromo");
+            return false ;
         }
     }
 
@@ -70,7 +72,12 @@ public class taller1 {
     }
 
     public static String invertirFrase(String frase) {
-        return new StringBuilder(frase).reverse().toString();
+        return new StringBuilder(frase).reverse().toString().replaceAll("\\s+","").toLowerCase();
+    }
+
+    public static void contarVocales() {
+        System.out.println("");
+        
     }
 }
 
